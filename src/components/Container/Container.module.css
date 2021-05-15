@@ -1,0 +1,36 @@
+.container {
+  justify-content: space-between;
+  text-align: center;
+  max-width: 1400px;
+  /* min-height: 100vh; */
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 80px;
+  padding: 0 30px;
+  background-image: linear-gradient(
+    to left,
+    rgba(148, 255, 212, 0.8),
+    rgba(144, 246, 212, 0.82),
+    rgba(140, 236, 211, 0.84),
+    rgba(137, 227, 211, 0.85),
+    rgba(133, 218, 210, 0.87),
+    rgba(129, 209, 210, 0.89),
+    rgba(125, 199, 209, 0.91),
+    rgba(121, 190, 209, 0.93),
+    rgba(117, 181, 208, 0.95),
+    rgba(114, 172, 208, 0.96),
+    rgba(110, 162, 207, 0.98),
+    rgb(106, 153, 207)
+  );
+}
+
+header .container {
+  display: flex;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba((34, 59, 87, 0.2)) inset;
+  -moz-box-shadow: 0px 0px 30px 0px rgba((34, 59, 87, 0.2)) inset;
+  box-shadow: 0px 0px 30px 0px rgba(34, 59, 87, 0.2) inset;
+}
+main .container {
+  padding: 50px;
+  min-height: 100vh;
+}

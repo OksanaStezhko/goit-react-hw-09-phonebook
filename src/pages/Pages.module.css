@@ -1,0 +1,85 @@
+.box {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 70vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.image {
+  max-width: 30%;
+  margin-right: 50px;
+}
+
+.title {
+  margin-bottom: 50px;
+  font-size: 25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(158, 158, 204);
+  color: rgb(10, 143, 252);
+  letter-spacing: 0.1em;
+}
+
+.title_second {
+  composes: title;
+  color: rgb(46, 131, 201);
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 2em;
+  max-width: 45%;
+  color: rgb(25, 77, 146);
+  text-shadow: 1px 1px 2px white, 0 0 1em rgba(148, 255, 212, 0.8);
+}
+
+.textend {
+  display: block;
+}
+
+.form {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.input {
+  display: block;
+
+  width: 70%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba((34, 59, 87, 0.2)) inset;
+  -moz-box-shadow: 0px 0px 30px 0px rgba((34, 59, 87, 0.2)) inset;
+  box-shadow: 0px 0px 30px 0px rgba(34, 59, 87, 0.2) inset;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  /* width: 80%; */
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(25, 77, 146);
+  text-shadow: 1px 1px 2px white, 0 0 1em rgba(148, 255, 212, 0.8);
+}
+
+.button {
+  width: 40%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgb(10, 143, 252);
+  border-radius: 5px;
+  text-shadow: 1px 1px 2px rgb(25, 77, 146), 0 0 1em rgba(148, 255, 212, 0.8);
+  color: white;
+  box-shadow: 0px 0px 30px 0px rgba(34, 59, 87, 0.2) inset;
+}
+
+.plug {
+  height: 10px;
+}

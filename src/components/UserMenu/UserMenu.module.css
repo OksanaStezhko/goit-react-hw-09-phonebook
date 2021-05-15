@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.email {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(11, 11, 184);
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(11, 11, 184);
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  color: white;
+}
+
+.icon {
+  font-size: 40px;
+  color: rgb(50, 50, 122);
+}
