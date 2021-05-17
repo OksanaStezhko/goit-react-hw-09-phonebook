@@ -1,26 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { useSelector, useDispatch } from 'react-redux'; // Импорт функции коннекта к хранилищу
+import { changeFilter } from '../../redux/contacts/contactActions';
+import { getFilter } from '../../redux/contacts/contactSelectors';
+
 import style from './Filter.module.css';
 
-const Filter = ({ value, onChangeFilter }) => (
-  <label className={style.label} htmlFor="">
-    Find contacts by name:
-    <input
-      className={style.input}
-      type="text"
-      value={value}
-      onChange={onChangeFilter}
-    />
-  </label>
-);
-
-Filter.defaultProps = {
-  value: '',
-};
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChangeFilter: PropTypes.func.isRequired,
+const Filter = () => {
+  const value = useSelector(getFilter);
+  const dispatch = useDispatch();
+  const onChangeFilter = ({ currentTarget }) => {
+    return dispatch(changeFilter(currentTarget.value));
+  };
+  return (
+    <label className={style.label} htmlFor="">
+      Find contacts by name:
+      <input
+        className={style.input}
+        type="text"
+        value={value}
+        onChange={onChangeFilter}
+      />
+    </label>
+  );
 };
 
 export default Filter;

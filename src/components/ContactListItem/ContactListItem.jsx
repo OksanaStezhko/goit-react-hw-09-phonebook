@@ -1,6 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
-import PropTypes from 'prop-types';
+
 import { useDispatch } from 'react-redux';
 // import { useCollback } from 'react';
 
@@ -26,11 +26,6 @@ const ContactListItem = ({ id, num, listItem }) => {
       </button>
     </li>
   );
-};
-
-ContactListItem.propTypes = {
-  listItem: PropTypes.array.isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactListItem;
