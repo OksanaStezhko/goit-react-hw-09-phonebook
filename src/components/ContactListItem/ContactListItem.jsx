@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import shortid from 'shortid';
 
 import { useDispatch } from 'react-redux';
-// import { useCollback } from 'react';
 
 import { deleteContact } from '../../redux/contacts/contactOperations';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -10,8 +9,9 @@ import style from './ContactListItem.module.css';
 
 const ContactListItem = ({ id, num, listItem }) => {
   const dispatch = useDispatch();
-  // без useCollback
-  const onDeleteContact = () => dispatch(deleteContact(id));
+  const onDeleteContact = useCallback(id => dispatch(deleteContact(id)), [
+    dispatch,
+  ]);
 
   return (
     <li className={style.item}>
@@ -21,7 +21,11 @@ const ContactListItem = ({ id, num, listItem }) => {
           {value}
         </span>
       ))}
-      <button type="button" className={style.button} onClick={onDeleteContact}>
+      <button
+        type="button"
+        className={style.button}
+        onClick={() => onDeleteContact(id)}
+      >
         <DeleteIcon />
       </button>
     </li>

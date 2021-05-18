@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import Container from '../components/Container';
 import Form from '../components/Form';
@@ -9,38 +9,30 @@ import { fetchContact } from '../redux/contacts/contactOperations';
 import { getLoading, getError } from '../redux/contacts/contactSelectors';
 import style from './Pages.module.css';
 
-class ContactsView extends Component {
-  componentDidMount() {
-    this.props.fetchContact();
-  }
+const ContactsView = () => {
+  const dispatch = useDispatch();
 
-  render() {
-    const { isLoading, isError } = this.props;
-    return (
-      <main>
-        <Container>
-          <h1 className={style.title}>Phonebook</h1>
-          <Form />
-          <Filter />
-          <h2 className={style.title_second}>Contacts</h2>
-          {isError && <h2>{isError}</h2>}
+  const isLoading = useSelector(getLoading);
+  const isError = useSelector(getError);
 
-          {isLoading ? <Loader /> : <div className={style.plug}></div>}
+  useEffect(() => {
+    dispatch(fetchContact());
+  }, [dispatch]);
 
-          <ContactList />
-        </Container>
-      </main>
-    );
-  }
-}
+  return (
+    <main>
+      <Container>
+        <h1 className={style.title}>Phonebook</h1>
+        <Form />
+        <Filter />
+        <h2 className={style.title_second}>Contacts</h2>
+        {isError && <h2>{isError}</h2>}
 
-const mapStateToProps = state => ({
-  isLoading: getLoading(state),
-  isError: getError(state),
-});
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchContact: () => dispatch(fetchContact()),
-  };
+        {isLoading ? <Loader /> : <div className={style.plug}></div>}
+
+        <ContactList />
+      </Container>
+    </main>
+  );
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ContactsView);
+export default ContactsView;

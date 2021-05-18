@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import authSelectors from '../../redux/authorization/authSelector';
@@ -10,7 +10,9 @@ import style from './UserMenu.module.css';
 const UserMenu = () => {
   const name = useSelector(authSelectors.getUsername);
   const dispatch = useDispatch();
-  const signOut = () => dispatch(authOperations.signOut());
+  const signOut = useCallback(() => dispatch(authOperations.signOut()), [
+    dispatch,
+  ]);
   return (
     <div className={style.container}>
       <span className={style.email}>{name}</span>

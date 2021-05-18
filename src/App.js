@@ -33,25 +33,24 @@ const App = () => {
       <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path={routes.home} component={HomeView} />
-          <PrivateRoute
-            path={routes.contacts}
-            redirectTo={routes.login}
-            component={ContactsView}
-          />
+          <PrivateRoute path={routes.contacts} redirectTo={routes.login}>
+            <ContactsView />
+          </PrivateRoute>
           <PublicRoute
             path={routes.login}
             restricted
             redirectTo={routes.contacts}
-            component={LoginView}
-          />
-          ;
+          >
+            <LoginView />
+          </PublicRoute>
           <PublicRoute
             path={routes.registration}
             restricted
             redirectTo={routes.contacts}
-            component={RegisterView}
-          />
-          ;
+          >
+            <RegisterView />
+          </PublicRoute>
+
           <Route component={HomeView} />
         </Switch>
       </Suspense>

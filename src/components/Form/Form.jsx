@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux'; // Импорт функции коннекта к хранилищу
 import { addContact } from '../../redux/contacts/contactOperations';
 
@@ -12,7 +12,9 @@ const Form = () => {
   const { name, number } = state;
 
   const dispatch = useDispatch();
-  const onSubmitForm = state => dispatch(addContact(state));
+  const onSubmitForm = useCallback(state => dispatch(addContact(state)), [
+    dispatch,
+  ]);
 
   const contactId = shortid.generate();
   const numberId = shortid.generate();

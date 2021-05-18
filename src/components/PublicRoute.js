@@ -7,19 +7,16 @@ import authSelectors from '../redux/authorization/authSelector';
  * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /todos
  * - В противном случае рендерит компонент
  */
-const PublicRoute = ({ component: Component, redirectTo, ...routeProps }) => {
+const PublicRoute = ({ redirectTo, children, ...routeProps }) => {
   const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   return (
-    <Route
-      {...routeProps}
-      render={props =>
-        isAuthenticated && routeProps.restricted ? (
-          <Redirect to={redirectTo} />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
+    <Route {...routeProps}>
+      {isAuthenticated && routeProps.restricted ? (
+        <Redirect to={redirectTo} />
+      ) : (
+        children
+      )}
+    </Route>
   );
 };
 
